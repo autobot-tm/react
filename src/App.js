@@ -19,6 +19,7 @@ import { Navbar, NavbarBrand } from 'reactstrap';
 
 import { DISHES } from './shared/dishes';
 import { Component } from 'react';
+import Main from './components/MainComponent';
 
 // const name = 'bo'; //khai báo bth
 // const user = {id: "1", name: "chi pheo"}; //khai báo dạng object
@@ -30,25 +31,21 @@ import { Component } from 'react';
 // const nameC = cities.map( (c, index) => {return <li key={index}> {c} </li>});
 
 export default class App extends Component {
+  // eslint-disable-next-line no-useless-constructor
   constructor(props) {
     super(props);
-    this.state = {
-      dishes: DISHES  //lấy data của mảng element DISHES trong dishes.js
-    };
   }
   render() {
     return (
-      <section>
-        <Navbar dark color='primary'>
-          <div className='container'>
-            <NavbarBrand href='/' >Ristorante Con Fusion</NavbarBrand>
-          </div>
-        </Navbar>
-         <Menu dishes={this.state.dishes} /> {/*props data vào bên Menu xử lý */}
-      </section>
+      <div className='App'>
+          <Main />
+      </div>
     );
   }
 }
+
+
+
 
 
 
@@ -71,6 +68,7 @@ export default class App extends Component {
 // </div>
 
 
+// eslint-disable-next-line no-lone-blocks
 {/* <h1>Hello</h1>
      <Stock /> 
      <Warning />
@@ -81,6 +79,7 @@ export default class App extends Component {
      <Tester />
      <ContainerComponent /> */}
 
+// eslint-disable-next-line no-lone-blocks
 {/* <BrowserRouter>
       <div>
         <Switch>
