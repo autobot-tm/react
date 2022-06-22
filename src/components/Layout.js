@@ -1,18 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Layout(props) {
     return (
         <nav>
             <ul>
                 <li>
-                    <Link to="/Home">Home</Link>
+                    <NavLink to="/Home" activeStyle={{color: "red"}}>Home</NavLink>
                 </li>
                 <li>
-                    <Link to="/Blogs">Blogs</Link>
+                    <NavLink to="/Blogs" activeStyle={{color: "red"}}>Blogs</NavLink>
                 </li>
                 <li>
-                    <Link to="/Contact">Contact</Link>
+                    <NavLink to="/Contact" activeStyle={{color: "red"}}>Contact</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/Profile/1" activeStyle={{color: "red"}}>Profile</NavLink>
                 </li>
             </ul>
         </nav>
