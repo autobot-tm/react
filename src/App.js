@@ -6,22 +6,21 @@ import './App.css';
 // import Form from './components/Form';
 // import Tester from './components/Demo';
 
-import Profile from './components/Profile';
-import ContainerComponent from './components/ContainerComponent';
-import Layout from './components/Layout';
-import Home from './components/Home';
-import Blogs from './components/Blogs';
-import Contact from './components/Contact';
-import NoPage from './components/NoPage';
+// import Profile from './components/Profile';
+// import ContainerComponent from './components/ContainerComponent';
+// import Layout from './components/Layout';
+// import Home from './components/Home';
+// import Blogs from './components/Blogs';
+// import Contact from './components/Contact';
+// import NoPage from './components/NoPage';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Menu from './components/MenuComponent';
-import { Navbar, NavbarBrand } from 'reactstrap';
+import Menu from './components/main/MenuComponent';
 
 import { DISHES } from './shared/dishes';
 import { Component } from 'react';
-import Main from './components/MainComponent';
-import { Router } from 'express';
+import Main from './components/main/MainComponent';
+// import { Router } from 'express';
 
 // const name = 'bo'; //khai báo bth
 // const user = {id: "1", name: "chi pheo"}; //khai báo dạng object
@@ -32,52 +31,54 @@ import { Router } from 'express';
 // const cities = ['Jaipur', 'Jodhpur', 'Udaipur', 'Pune', 'Chandigarh'];
 // const nameC = cities.map( (c, index) => {return <li key={index}> {c} </li>});
 
-// export default class App extends Component {
-//   // eslint-disable-next-line no-useless-constructor
-//   constructor(props) {
-//     super(props);
-//   }
-//   render() {
-//     return (
-//       <div className='App'>
-//           <Main />
-//       </div> 
-//     );
-//   }
-// }
-
-
-
-
-
-
-
-
-function App() {
-  return (
-    <div className='App'>
-      <Navbar dark color='primary'>
-        <div className='container'>
-          <NavbarBrand href='/' >Ristorante Con Fusion</NavbarBrand>
-        </div>
-      </Navbar>
-      {/* <Menu dishes = {this.state.dishes} /> */}
+export default class App extends Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route exact path="/" component={Layout} />
-            <Route path="/Home" component={Home} />
-            <Route path="/Blogs" component={Blogs} />
-            <Route path="/Contact" component={Contact} />
-            <Route path="/Profile/:isLogin" component={Profile} />
-            <Route path="/*" component={NoPage} />
-          </Switch>
-        </div>
+      <div className='App'>
+          <Main />
+      </div> 
       </BrowserRouter>
-    </div>
-  );
+    );
+  }
 }
-export default App;
+
+
+
+
+
+
+
+
+// function App() {
+//   return (
+//     <div className='App'>
+//       <Navbar dark color='primary'>
+//         <div className='container'>
+//           <NavbarBrand href='/' >Ristorante Con Fusion</NavbarBrand>
+//         </div>
+//       </Navbar>
+//       {/* <Menu dishes = {this.state.dishes} /> */}
+//       <BrowserRouter>
+//         <div>
+//           <Switch>
+//             <Route exact path="/" component={Layout} />
+//             <Route path="/Home" component={Home} />
+//             <Route path="/Blogs" component={Blogs} />
+//             <Route path="/Contact" component={Contact} />
+//             <Route path="/Profile/:isLogin" component={Profile} />
+//             <Route path="/*" component={NoPage} />
+//           </Switch>
+//         </div>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+// export default App;
 
   // <div className="App">
   //   <h1>Hello World!</h1>
