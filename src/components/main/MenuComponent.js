@@ -1,67 +1,56 @@
-import React from "react";
+import React, { Component } from "react";
 // import {Media} from 'reactstrap';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 
 
 
-function RenderMenu({ dishes, onClick }) {
+function RenderMenu({ dish, onClick }) {
     return (
-        <Card onClick={() => onClick(dishes.id)}>
-            <CardImg width='100%' src={dishes.image} alt={dishes.name} />
-            <CardImgOverlay>
-                <CardTitle><strong>{dishes.name}</strong></CardTitle>
-            </CardImgOverlay>
+        <Card>
+            <Link to={`/menu/${dish.id}`} >
+                <CardImg width='100%' src={dish.image} alt={dish.name} />
+                <CardImgOverlay>
+                    <CardTitle><strong>{dish.name}</strong></CardTitle>
+                </CardImgOverlay>
+            </Link>
         </Card>
     );
 }
 
-const Menu = (props) => {
-    const menu = props.dishes.map((dishes) => {
+class Menu extends Component{
+    constructor(props){
+        super(props);
+    }
+    render() {
+    const menu = this.props.dishes.map((dish) => {
         return (
-            <div key={dishes.id} className='col-12 col-md-5 m-1'>
-                <RenderMenu dishes={dishes} onClick={props.onClick} />
+            <div className='col-12 col-md-5 m-1'>
+                <div key={dish.id}>
+                    <RenderMenu dish={dish} />
+                </div>
             </div>
         );
     });
     return (
         <div className='container'>
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Menu</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Menu</h3>
+                </div>
+            </div>
             <div className='row'>
                 {menu}
             </div>
         </div>
     );
 }
+}
 
 export default Menu;
-
-// class Menu extends React.Component{
-//     // eslint-disable-next-line no-useless-constructor
-//     constructor(props){
-//         super(props);
-//     }
-
-//     render(){
-//         const menu = this.props.dishes.map( (dishes) => {
-//             return(
-//                 <div key={dishes.id} className='col-12 col-md-5 m-1'>
-//                     <Card onClick={() => this.props.onClick(dishes.id)}>
-//                         <CardImg width='100%' src={dishes.image} alt={dishes.name} />
-//                         <CardImgOverlay>
-//                             <CardTitle><strong>{dishes.name}</strong></CardTitle>
-//                         </CardImgOverlay>
-//                     </Card>
-//                 </div>
-//             );
-//         });
-
-//         return (
-//             <div className='container'>
-//                 <div className='row'>
-//                     {menu}
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
 
