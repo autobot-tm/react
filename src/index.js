@@ -8,6 +8,7 @@ import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
+// import App from './myredux/App';
 
 // import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap.css';

@@ -20,6 +20,12 @@ import Menu from './components/main/MenuComponent';
 import { DISHES } from './shared/dishes';
 import { Component } from 'react';
 import Main from './components/main/MainComponent';
+
+// import { configureStore3 } from './ex1redux/configureStore3';
+// import TestComponent from './ex1redux/TestComponent';
+import TestReduxThunk from './myreduxthunk/TestReduxThunk';
+import { configureStore4 } from './myreduxthunk/configureStore4';
+import { Provider } from 'react-redux';
 // import { Router } from 'express';
 
 // const name = 'bo'; //khai báo bth
@@ -31,23 +37,38 @@ import Main from './components/main/MainComponent';
 // const cities = ['Jaipur', 'Jodhpur', 'Udaipur', 'Pune', 'Chandigarh'];
 // const nameC = cities.map( (c, index) => {return <li key={index}> {c} </li>});
 
-export default class App extends Component {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
+//**** */
+// export default class App extends Component {
+//   // eslint-disable-next-line no-useless-constructor
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     return (
+//       <BrowserRouter>
+//       <div className='App'>
+//           <Main />
+//       </div> 
+//       </BrowserRouter>
+//     );
+//   }
+// }
+
+
+const store = configureStore4();
+function App() {
+  return (
+    <Provider store={store}>
       <BrowserRouter>
-      <div className='App'>
+        <div className='App'>
           <Main />
-      </div> 
+        </div>
       </BrowserRouter>
-    );
-  }
+    </Provider>
+
+  )
 }
-
-
+export default App;
 
 
 
@@ -80,13 +101,13 @@ export default class App extends Component {
 // }
 // export default App;
 
-  // <div className="App">
-  //   <h1>Hello World!</h1>
-  // </div>
+// <div className="App">
+//   <h1>Hello World!</h1>
+// </div>
 
 
-  // eslint-disable-next-line no-lone-blocks
-  {/* <h1>Hello</h1>
+// eslint-disable-next-line no-lone-blocks
+{/* <h1>Hello</h1>
      <Stock /> 
      <Warning />
      <Form /> 

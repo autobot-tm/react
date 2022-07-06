@@ -1,13 +1,15 @@
 import React from "react";
 import {connect} from 'react-redux';
 
+
 const mapStateToProps=(state) => {
-    return(
+    return{
         count: state.count
-    )
+    }
 }
 
 class Counter extends React.Component{
+    // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
     }
